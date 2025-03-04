@@ -43,5 +43,4 @@ jobs:
       run: docker build -t lmortola/api-ci:${{ steps.generate_tag.outputs.sha }} .
 
     - name: Push image
-    - run: docker push lmortola/api-ci:${{ steps.generate_tag.outputs.sha }}
-    
+      run: docker push lmortola/api-ci:${{ steps.generate_tag.outputs.sha }}
