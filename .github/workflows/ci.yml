@@ -26,3 +26,8 @@ jobs:
 
     - name: Test aplication
       run: npm run test
+
+    - name: build docker image
+      run: docker build -t api-ci:latest .
+
+      
