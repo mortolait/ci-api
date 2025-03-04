@@ -11,14 +11,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Ter acesso ao codigo (git checkout)
+    # Ter acesso ao código (git checkout)
     - uses: actions/checkout@v4
 
     - name: Setup node
-    - uses: actions/setup-node@v4
+      uses: actions/setup-node@v4
       with:
         node-version: 20
-    - run: npm run start
-
-
-
+        
+    - name: Start application
+      run: npm run start
