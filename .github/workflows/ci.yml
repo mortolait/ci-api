@@ -1,0 +1,10 @@
+name: CI
+
+jobs:
+  build:
+    name: 'Build and push'
+    runs-on: ubuntu-latest
+
+    steps:
+    # Ter acesso ao codigo (git checkout)
+    - uses: actions/checkout@v4
