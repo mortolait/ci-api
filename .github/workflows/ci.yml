@@ -40,8 +40,14 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-    - name: build docker image
-      run: docker build -t lmortola/api-ci:${{ steps.generate_tag.outputs.sha }} .
+    - name: Build and push
+      uses: docker/build-push-action@v6
+      with:
+        push: true
+        tags: lmortola/api-ci:${{ steps.generate_tag.outputs.sha }},lmortola/api-ci:latest
 
-    - name: Push image
-      run: docker push lmortola/api-ci:${{ steps.generate_tag.outputs.sha }}
+    # - name: build docker image
+    #   run: docker build -t lmortola/api-ci:${{ steps.generate_tag.outputs.sha }} .
+
+    # - name: Push image
+    #   run: docker push lmortola/api-ci:${{ steps.generate_tag.outputs.sha }}
