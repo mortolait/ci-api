@@ -27,7 +27,13 @@ jobs:
     - name: Test aplication
       run: npm run test
 
-    - name: build docker image
-      run: docker build -t api-ci:latest .
+    - name: Generate tag
+      id: generate_tag
+      run: |
+        SHA=$(echo $GITHUB_SHA | HEAD -c7)
+        echo "sha=$SHA" >> $GITHUB_OUTPUT
 
-      
+    - name: build docker image
+      run: docker build -t api-ci:${{ steps.generate_tag.outputs.sha }} .
+
+
