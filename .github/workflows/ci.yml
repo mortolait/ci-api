@@ -21,5 +21,8 @@ jobs:
     - run: npm install
     - run: npm run test
 
+    - name: 'Docker build image'
+      run: docker build -t api-ci:latest .
+
 
     
