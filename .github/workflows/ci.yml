@@ -37,4 +37,4 @@ jobs:
       run: docker build -t api-ci:${{ steps.generate_tag.outputs.sha }} .
 
     - name: 'push image to container registry'
-      run: docker push lmortola/api-ci:{{ steps.generate_tag.outputs.sha }}
+      run: docker push lmortola/api-ci:${{ steps.generate_tag.outputs.sha }}
