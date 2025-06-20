@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main 
+
+
+jobs:
+  build:
+    name: 'Build and push'
+    runs-on: 'ubuntu-latest'
+
+    steps:
+    - name: 'checkout do projeto'
+      uses: actions/checkout@v4
+
+    - name: 'Setup do node'
+      uses: 'actions/setup-node@v4'
+      
+    - run: npm install
+    - run: npm run test
+
+
+    
