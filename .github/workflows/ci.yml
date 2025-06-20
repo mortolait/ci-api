@@ -21,8 +21,14 @@ jobs:
     - run: npm install
     - run: npm run test
 
+    - name: Generate tag
+      id: generate_tag
+      run: |
+        SHA=$(echo $GHHUB_SHA | head c7)
+        echo "sha=$SHA" >> $GHHUB_OUTPUT
+
     - name: 'Docker build image'
-      run: docker build -t api-ci:latest .
+      run: docker build -t api-ci:{{steps.generate_tag.outputs.sha}} .
 
 
     
