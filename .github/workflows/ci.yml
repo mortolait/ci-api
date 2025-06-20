@@ -28,7 +28,7 @@ jobs:
         echo "sha=$SHA" >> $GITHUB_OUTPUT
 
     - name: 'Docker build image'
-      run: docker build -t api-ci:{{steps.generate_tag.outputs.sha}} .
+      run: docker build -t api-ci:${{ steps.generate_tag.outputs.sha }} .
 
 
     
