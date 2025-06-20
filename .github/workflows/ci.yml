@@ -34,7 +34,7 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
     - name: 'Docker build image'
-      run: docker build -t api-ci:${{ steps.generate_tag.outputs.sha }} .
+      run: docker build -t lmortola/api-ci:${{ steps.generate_tag.outputs.sha }} .
 
     - name: 'push image to container registry'
       run: docker push lmortola/api-ci:${{ steps.generate_tag.outputs.sha }}
